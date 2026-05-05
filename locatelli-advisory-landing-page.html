@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Locatelli Advisory | Tech & Sales Consultant</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #0f172a;
+      --surface: #111827;
+      --surface-soft: #1f2937;
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --accent: #38bdf8;
+      --accent-strong: #60a5fa;
+      --border: rgba(148, 163, 184, 0.18);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.16), transparent 30%),
+                  linear-gradient(180deg, #0b1220 0%, #0f172a 100%);
+      color: var(--text);
+    }
+
+    body {
+      line-height: 1.75;
+      padding: 0 1.75rem 4rem;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 4rem 0 2rem;
+    }
+
+    header {
+      margin-bottom: 4rem;
+    }
+
+    .hero {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      letter-spacing: -0.04em;
+      line-height: 1.02;
+    }
+
+    .eyebrow {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      margin-bottom: 1rem;
+    }
+
+    .subheading {
+      color: var(--muted);
+      max-width: 40rem;
+      margin: 1rem 0 0;
+      font-size: 1rem;
+    }
+
+    .contact-card {
+      display: grid;
+      gap: 1.25rem;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(16px);
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      background: rgba(30, 41, 59, 0.92);
+      border: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    .columns {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .panel {
+      padding: 2rem;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.88);
+    }
+
+    .panel h2 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .panel ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .panel li {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+      color: var(--muted);
+    }
+
+    .panel li strong {
+      color: var(--text);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+    }
+
+    a.button,
+    a.button-alt {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 0.95rem 1.6rem;
+      font-weight: 700;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    a.button {
+      color: #0f172a;
+      background: #38bdf8;
+      box-shadow: 0 24px 60px rgba(56, 189, 248, 0.16);
+    }
+
+    a.button:hover,
+    a.button-alt:hover {
+      transform: translateY(-1px);
+    }
+
+    a.button-alt {
+      color: var(--text);
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .footer {
+      margin-top: 4rem;
+      display: grid;
+      gap: 1.25rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .link-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .link-grid a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .quote {
+      padding: 1.75rem;
+      margin: 0;
+      border-left: 4px solid #38bdf8;
+      color: var(--muted);
+      font-size: 1rem;
+      background: rgba(30, 41, 59, 0.95);
+      border-radius: 16px;
+    }
+
+    @media (max-width: 780px) {
+      .columns {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 0.75rem;
+      }
+
+      .page {
+        padding-top: 2rem;
+      }
+
+      .hero {
+        gap: 1rem;
+      }
+
+      .contact-card,
+      .panel,
+      .quote {
+        padding: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Locatelli Advisory</p>
+        <div class="badge">Tech & Sales Consultant — Web, Data & B2B Growth</div>
+        <h1>Helping companies build, optimize, and scale tech and sales systems.</h1>
+        <p class="subheading">A hybrid consultant blending frontend web development, database and data analysis, plus B2B sales operations to deliver practical, scalable business impact.</p>
+      </div>
+
+      <section class="contact-card">
+        <p><strong>Based in Turin, Italy</strong></p>
+        <ul class="pill-list">
+          <li class="pill">English 🇬🇧/🇺🇸</li>
+          <li class="pill">French 🇫🇷</li>
+        </ul>
+
+        <p class="quote">Helping companies build, optimize, and scale their tech and sales systems by combining web development, data analysis, and B2B process optimization.</p>
+
+        <div style="display:flex; flex-wrap: wrap; gap: 0.85rem; margin-top:1rem;">
+          <a class="button" href="mailto:locatelliadvisory@gmail.com">Email Me</a>
+          <a class="button-alt" href="https://calendar.app.google/rjJZdoWrHiQqpSGp7" target="_blank" rel="noreferrer">Schedule a Meeting</a>
+        </div>
+      </section>
+    </header>
+
+    <section class="columns">
+      <article class="panel">
+        <div class="section-title">🔧 Tech Expertise</div>
+        <h2>Web Development (Frontend)</h2>
+        <ul>
+          <li><strong>Responsive interfaces</strong> — clean, usable, and performance-focused UI solutions.</li>
+          <li><strong>Modern design standards</strong> — usability and polished UX that supports business goals.</li>
+          <li><strong>Scalable web apps</strong> — from concept to production-ready implementation.</li>
+        </ul>
+
+        <h2 style="margin-top:1.75rem;">Databases & SQL</h2>
+        <ul>
+          <li><strong>Database design</strong> — efficient structure for reliability and growth.</li>
+          <li><strong>SQL optimization</strong> — clean queries for fast data extraction and analysis.</li>
+          <li><strong>Scalability</strong> — data systems designed for long-term performance.</li>
+        </ul>
+      </article>
+
+      <article class="panel">
+        <div class="section-title">📊 Data & Strategy</div>
+        <h2>Data Analysis</h2>
+        <ul>
+          <li><strong>Actionable insights</strong> — turning raw data into decision-ready intelligence.</li>
+          <li><strong>Dashboards & reports</strong> — clear visuals for leadership and operations.</li>
+          <li><strong>Data-driven strategy</strong> — supporting business outcomes with real evidence.</li>
+        </ul>
+
+        <h2 style="margin-top:1.75rem;">Technical Problem Solving</h2>
+        <ul>
+          <li><strong>Workflow automation</strong> — removing repetitive tasks and reducing friction.</li>
+          <li><strong>Systems alignment</strong> — bridging technical tools with business needs.</li>
+          <li><strong>Practical delivery</strong> — maintainable solutions built for real teams.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="columns" style="margin-top:2rem;">
+      <article class="panel">
+        <div class="section-title">💼 Sales Support</div>
+        <h2>B2B Sales Operations</h2>
+        <ul>
+          <li><strong>Prospecting & lead generation</strong> — structured outreach and quality pipelines.</li>
+          <li><strong>Lead qualification</strong> — helping prioritize the right opportunities.</li>
+          <li><strong>CRM optimization</strong> — better tracking, reporting, and follow-up.</li>
+        </ul>
+
+        <h2 style="margin-top:1.75rem;">Process Optimization</h2>
+        <ul>
+          <li><strong>Sales workflow improvement</strong> — faster, more consistent team execution.</li>
+          <li><strong>Tool alignment</strong> — making systems work together effectively.</li>
+          <li><strong>Sustainable growth</strong> — measurable improvements and repeatable processes.</li>
+        </ul>
+      </article>
+
+      <article class="panel">
+        <div class="section-title">🚀 Approach</div>
+        <ul>
+          <li><strong>Tech-first mindset</strong> — rooted in real business challenges.</li>
+          <li><strong>Measurable results</strong> — projects designed for impact, not just output.</li>
+          <li><strong>Revenue-aligned delivery</strong> — technical work that supports growth.</li>
+          <li><strong>Flexible execution</strong> — fast, hands-on, and results-oriented.</li>
+        </ul>
+
+        <div style="margin-top:1.75rem;">
+          <p><strong>What I bring</strong></p>
+          <ul style="list-style: disc; margin-left:1.25rem; color: var(--muted);">
+            <li>A hybrid profile combining technical and sales expertise.</li>
+            <li>Clear communication between business and technical teams.</li>
+            <li>Fast execution with efficiency and impact.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section style="margin-top:2rem;">
+      <div class="panel">
+        <div class="section-title">Portfolio</div>
+        <div class="link-grid">
+          <a href="https://www.notion.so/PORTOFOLIO-SALES-35711df6681480dc8dd4e569b4fcff6d?pvs=21" target="_blank" rel="noreferrer">PORTOFOLIO SALES</a>
+          <a href="https://www.notion.so/PORTOFOLIO-TECH-35711df66814804ab384fe00fb66e1e8?pvs=21" target="_blank" rel="noreferrer">PORTOFOLIO TECH</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer">
+      <p><strong>Let’s work together 🤲</strong></p>
+      <p>If you need someone who bridges tech and business to deliver practical, scalable solutions, I’d be happy to collaborate.</p>
+      <p>Email: <a href="mailto:locatelliadvisory@gmail.com" style="color: var(--accent); text-decoration: none;">locatelliadvisory@gmail.com</a></p>
+      <p><a class="button" href="https://calendar.app.google/rjJZdoWrHiQqpSGp7" target="_blank" rel="noreferrer">Book a meeting</a></p>
+    </section>
+  </main>
+</body>
+</html>
